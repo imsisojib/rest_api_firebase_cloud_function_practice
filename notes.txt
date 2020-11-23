@@ -1,4 +1,12 @@
     ***Install Node.js first
     Step-1: Install Firebase tools
         npm install -g firebase-tools npm
-    Step-2: 
+    Step-2: firebase login (login to firebase using CLI)
+    Step-3: firebase init (choose any option using SPACEBAR)
+        for this project I selected Firebase Cloud Functions 
+    Step-4: choose language type JavaScript
+    Step-4: Allow install dependencies. (it will config the project and download index.js file)
+    Step-5: Install Express
+        cmd: npm i express
+    Step-6: Install cors
+        cmd: npm i cors
