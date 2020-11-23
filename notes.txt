@@ -10,3 +10,11 @@
         cmd: npm i express
     Step-6: Install cors
         cmd: npm i cors
+
+    ***After creating first Route test the Route
+    Step-7: change directory to "functions" folder where index.js is located in project directory.
+    Step-8: run local express server by using 
+        cmd: npm run serve
+    now localhost will be live and output can be get in any browser as well as "Postman" by giving base localhost url. For Example: http://localhost:5001/rest-api-and-cloud-functions/us-central1/app is the base url for this project in my pc.
+
+    

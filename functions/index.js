@@ -11,8 +11,7 @@ const functions = require('firebase-functions');
 
 const admin = require('firebase-admin');
 const express = require('express');
-const functions = require('firebase-functions');
-const cors = require('cors'); //CORS(Cross-Origin Resource Sharing) is a node. js package for providing a Connect/Express middleware that can be used to enable CORS with various options. 
+const cors = require('cors'); /*CORS(Cross-Origin Resource Sharing) is a node. js package for providing a Connect/Express middleware that can be used to enable CORS with various options. */
 const app = express();
 
 
