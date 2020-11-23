@@ -1,0 +1,4 @@
+    ***Install Node.js first
+    Step-1: Install Firebase tools
+        npm install -g firebase-tools npm
+    Step-2: 
