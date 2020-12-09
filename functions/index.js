@@ -143,5 +143,28 @@ app.put('/api/update_product/:id',(req,res) =>{
 });
 
 
+//Delete
+//Delete
+app.delete('/api/delete_product/:id',(req,res) =>{
+
+    (async () =>{
+
+        try{
+
+            const document = db.collection('products').doc(req.params.id);
+            await document.delete();
+
+            return res.status(200).send();
+        }catch(error){
+            console.log(error);
+            return res.status(500).send(error);
+
+        }
+
+    })();
+
+});
+
+
 //export the api to firebase cloud functions
 exports.app = functions.https.onRequest(app); //handle all api request
