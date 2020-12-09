@@ -116,6 +116,32 @@ app.get('/api/read_all_products',(req,res) =>{
 
 });
 
+//Update
+// Put
+app.put('/api/update_product/:id',(req,res) =>{
+
+    (async () =>{
+
+        try{
+
+            const document = db.collection('products').doc(req.params.id);
+            await document.update({
+                name: req.body.name,
+                description: req.body.description,
+                price: req.body.price
+            });
+
+            return res.status(200).send();
+        }catch(error){
+            console.log(error);
+            return res.status(500).send(error);
+
+        }
+
+    })();
+
+});
+
 
 //export the api to firebase cloud functions
 exports.app = functions.https.onRequest(app); //handle all api request
