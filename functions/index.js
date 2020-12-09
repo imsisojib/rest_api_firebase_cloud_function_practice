@@ -81,7 +81,40 @@ app.get('/api/read/:id',(req,res) =>{
 
 });
 
+//read all products
+app.get('/api/read_all_products',(req,res) =>{
 
+    (async () =>{
+
+        try{
+
+            let query = db.collection('products');
+            let response = [];
+            await query.get().then(querysnapshot =>{
+                let docs = querysnapshot.docs;
+
+                for(let doc of docs){
+                    const selectedItem = {
+                        id: doc.id,
+                        name: doc.data().name,
+                        description: doc.data().description,
+                        price: doc.data().price
+                    };
+                    response.push(selectedItem);
+                }
+                return response;
+            })
+
+            return res.status(200).send(response);
+        }catch(error){
+            console.log(error);
+            return res.status(500).send(error);
+
+        }
+
+    })();
+
+});
 
 
 //export the api to firebase cloud functions
