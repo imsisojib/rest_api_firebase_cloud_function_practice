@@ -10,15 +10,58 @@ const functions = require('firebase-functions');
 
 
 const admin = require('firebase-admin');
+//adding service account key
+var serviceAccount = require("./permissions_key.json"); //key generate kore 'functions folder a rakha hoiche.'
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://rest-api-and-cloud-functions.firebaseio.com"
+});
+
 const express = require('express');
-const cors = require('cors'); /*CORS(Cross-Origin Resource Sharing) is a node. js package for providing a Connect/Express middleware that can be used to enable CORS with various options. */
 const app = express();
 
+const db = admin.firestore(); //root url of firebase
+const cors = require('cors'); /*CORS(Cross-Origin Resource Sharing) is a node. js package for providing a Connect/Express middleware that can be used to enable CORS with various options. */
+app.use( cors( {origin:true} ) ); //different origin/domain a access korar jonno 'cors' use kora holo
 
 //Routes
+
+//default route
 app.get('/',(req,res) =>{
     return res.status(200).send('Hello World');
-} ) //base url hit korle "hello world" output dekhabe.
+} ); //base url hit korle "hello world" output dekhabe.
+
+//Create
+//Post
+app.post('/api/create',(req,res) =>{
+
+    (async () =>{
+
+        try{
+
+            await db.collection('products').doc('/'+ req.body.id +'/')
+            .create({
+                name: req.body.name,
+                description: req.body.description,
+                price: req.body.price
+            })
+            return res.status(200).send();
+        }catch(error){
+            console.log(error);
+            return res.status(500).send(error);
+
+        }
+
+    })();
+
+});
+    
+
+//Read
+//Get
+
+
 
 
 //export the api to firebase cloud functions
