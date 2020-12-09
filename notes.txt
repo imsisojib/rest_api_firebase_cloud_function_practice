@@ -17,4 +17,21 @@
         cmd: npm run serve
     now localhost will be live and output can be get in any browser as well as "Postman" by giving base localhost url. For Example: http://localhost:5001/rest-api-and-cloud-functions/us-central1/app is the base url for this project in my pc.
 
+
+
+    ***gitignore
+    
+    1. ignore specific file from any directory:
+    to remove any specific file from any directory just add the file name into gitignore.
+    like: permissions_key.json (if only use .json it will ignore all .json extention files.) and again only adding 'permissions_key' won't work.
+    2. ignore specific folder
+    add like: /Library(Library is folder name)
+    again Library may be Library/library. so all L/libray can be ignored.
+    add like: /[Ll]ibrary or /[Bb]ooks
+
+    3. ignore folder files into another folder
+    add like: /Assests/AssetsTools* //will ignore all files into 'AssetsTools' folder. 
+
+
+
     
