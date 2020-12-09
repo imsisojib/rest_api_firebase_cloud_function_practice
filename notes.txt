@@ -18,9 +18,12 @@
     now localhost will be live and output can be get in any browser as well as "Postman" by giving base localhost url. For Example: http://localhost:5001/rest-api-and-cloud-functions/us-central1/app is the base url for this project in my pc.
 
 
+    ***Deploy Project/Functions
+    To deploy Cloud Functions there is need of Billing Account. After setting up billing account simple run 'Firebase Deploy' to deploy functions to the firebase and there we'll get remote base url which can be used for the API. Thanks.
+
 
     ***gitignore
-    
+
     1. ignore specific file from any directory:
     to remove any specific file from any directory just add the file name into gitignore.
     like: permissions_key.json (if only use .json it will ignore all .json extention files.) and again only adding 'permissions_key' won't work.
@@ -31,6 +34,8 @@
 
     3. ignore folder files into another folder
     add like: /Assests/AssetsTools* //will ignore all files into 'AssetsTools' folder. 
+
+
 
 
 
