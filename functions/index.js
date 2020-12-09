@@ -60,6 +60,26 @@ app.post('/api/create',(req,res) =>{
 
 //Read
 //Get
+app.get('/api/read/:id',(req,res) =>{
+
+    (async () =>{
+
+        try{
+
+            const document = db.collection('products').doc(req.params.id);
+            let product = await document.get();
+            let response = product.data(); //json format
+
+            return res.status(200).send(response);
+        }catch(error){
+            console.log(error);
+            return res.status(500).send(error);
+
+        }
+
+    })();
+
+});
 
 
 
